@@ -50,11 +50,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Here is the link to the live experience](https://adnanolarmmi.github.io/Leaderboard/).
-
-> |     | Mobile version                      | Desktop version                      |     |
-> | --- | ----------------------------------- | ------------------------------------ | --- |
-> |     | ![Screenshot1](./images/mobile.gif) | ![Screenshot2](./images/desktop.gif) |
+- [Here is the link to the live experience]().
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
