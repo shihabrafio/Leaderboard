@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: scroll;
-  /* height: 10vh; */
   margin-left: 4%;
 }
 
@@ -44,11 +43,8 @@ ul li:nth-child(odd) {
 }
 
 .add {
-  box-sizing: border-box;
-  border: 1px solid black;
   width: 17%;
   margin-left: 4%;
-  height: fit-content;
 }
 
 .show {
@@ -61,5 +57,5 @@ ul li:nth-child(odd) {
 }
 
 .add button {
-  align-items: right;
+  margin-left: 68%;
 }
