@@ -2,7 +2,7 @@ const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/'
 
 export const listitem = (name, score) => {
   const li = document.createElement('li');
-  li.textContent = `${name}: ${score}`;
+  li.innerHTML = `${name}: ${score}`;
   return li;
 };
 
@@ -21,5 +21,8 @@ export const savescore = async (gameId, name, score) => {
     body: JSON.stringify({ user: name, score }),
   });
   const data = await response.json();
-  return data.result;
+  const scoresResponse = await fetch(`${apiUrl}games/${gameId}/scores/`);
+  const scoresData = await scoresResponse.json();
+  const sortedScores = scoresData.result.sort((a, b) => b.score - a.score);
+  return sortedScores;
 };

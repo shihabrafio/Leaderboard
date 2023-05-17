@@ -5,7 +5,7 @@ const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/'
 
 let ID;
 const createGame = async () => {
-  const stored = localStorage.getItem("ID");
+  let stored = localStorage.getItem("ID");
   if (stored) {
     ID = stored;
   } else {
@@ -36,12 +36,27 @@ refreshButton.addEventListener('click', async () => {
 
 const submit = document.querySelector(".submit");
 submit.addEventListener("click", async (e) => {
-  e.preventDefault()
+  e.preventDefault();
   const nameinput = document.getElementById("name");
   const scoreinput = document.getElementById("score");
-  const name = nameinput.value;
-  const score = scoreinput.value;
+  const name = nameinput.value.trim();
+  const score = parseInt(scoreinput.value);
   await savescore(ID, name, score);
   nameinput.value = "";
   scoreinput.value = "";
+});
+
+submit.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    submit.click(); 
+  }
+});
+
+const clearAll = document.querySelector('.clear');
+clearAll.addEventListener('click',  () => {
+  const scoresList = document.getElementById('scores');
+  scoresList.innerHTML = '';
+  localStorage.removeItem("ID");
+  location.reload();
 });
