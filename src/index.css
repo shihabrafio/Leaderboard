@@ -1,10 +1,20 @@
 body {
   font-family: "Gilroy", sans-serif;
-  background-color: #fff;
+  background-color: rgb(30, 82, 30);
   margin: 0;
   padding: 0;
   overflow: scroll;
   margin-left: 4%;
+}
+
+h1,h3 {
+  color: white;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .scoreboard {
@@ -13,12 +23,27 @@ body {
 
 .top-1 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  background-color: #1b3118;
+  color: white;
+  border-radius: 10px;
+}
+
+img {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid var(--textColor);
+  padding: 0.1rem;
 }
 
 ul {
-  border: 2px solid grey;
   padding-left: 0;
+}
+
+input {
+  margin-bottom: 4%;
+  border-radius: 10px;
+  height: 2rem;
 }
 
 ul li {
@@ -26,6 +51,8 @@ ul li {
   font-size: 1rem;
   font-weight: 600;
   list-style: none;
+  text-align: left;
+  border-radius: 13px;
 }
 
 ul li:nth-child(even) {
@@ -34,7 +61,7 @@ ul li:nth-child(even) {
 }
 
 ul li:nth-child(odd) {
-  background: transparent;
+  background: white;
 }
 
 .form {
@@ -53,9 +80,27 @@ ul li:nth-child(odd) {
 
 .top-1 button {
   height: 21px;
-  margin-top: 7%;
+  margin-top: 5%;
+  padding-top: 1%;
 }
 
 .add button {
-  margin-left: 68%;
+  margin-left: 76%;
+}
+
+button {
+  width: fit-content;
+  margin-left: auto;
+  box-shadow: 0.01rem 0.01rem 0.3rem rgb(244, 237, 237);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: linear-gradient(to right, #42bd4f 0%, #7cccc1 100%);
+  border-radius: 200px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+}
+
+button:hover {
+  box-shadow: 0.05rem 0.05rem 0.5rem rgb(244, 237, 237);
 }
