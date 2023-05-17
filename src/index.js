@@ -1,24 +1,24 @@
-import "./index.css";
-import { listitem, getscore, savescore } from "../modules/game.js";
+import './index.css';
+import { listitem, getscore, savescore } from '../modules/game.js';
 
 const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 
 let ID;
 const createGame = async () => {
-  let stored = localStorage.getItem("ID");
+  const stored = localStorage.getItem('ID');
   if (stored) {
     ID = stored;
   } else {
     const response = await fetch(`${apiUrl}games/`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: "Your Game" }),
+      body: JSON.stringify({ name: 'Your Game' }),
     });
     const data = await response.json();
     ID = data.result;
-    localStorage.setItem("ID", ID);
+    localStorage.setItem('ID', ID);
   }
 };
 createGame();
@@ -34,29 +34,29 @@ refreshButton.addEventListener('click', async () => {
   });
 });
 
-const submit = document.querySelector(".submit");
-submit.addEventListener("click", async (e) => {
+const submit = document.querySelector('.submit');
+submit.addEventListener('click', async (e) => {
   e.preventDefault();
-  const nameinput = document.getElementById("name");
-  const scoreinput = document.getElementById("score");
+  const nameinput = document.getElementById('name');
+  const scoreinput = document.getElementById('score');
   const name = nameinput.value.trim();
-  const score = parseInt(scoreinput.value);
+  const score = parseInt(scoreinput.value, 10);
   await savescore(ID, name, score);
-  nameinput.value = "";
-  scoreinput.value = "";
+  nameinput.value = '';
+  scoreinput.value = '';
 });
 
 submit.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
-    submit.click(); 
+    submit.click();
   }
 });
 
 const clearAll = document.querySelector('.clear');
-clearAll.addEventListener('click',  () => {
+clearAll.addEventListener('click', () => {
   const scoresList = document.getElementById('scores');
   scoresList.innerHTML = '';
-  localStorage.removeItem("ID");
-  location.reload();
+  localStorage.removeItem('ID');
+  window.location.reload();
 });

@@ -21,8 +21,5 @@ export const savescore = async (gameId, name, score) => {
     body: JSON.stringify({ user: name, score }),
   });
   const data = await response.json();
-  const scoresResponse = await fetch(`${apiUrl}games/${gameId}/scores/`);
-  const scoresData = await scoresResponse.json();
-  const sortedScores = scoresData.result.sort((a, b) => b.score - a.score);
-  return sortedScores;
+  return data.result;
 };
