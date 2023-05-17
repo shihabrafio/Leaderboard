@@ -29,7 +29,7 @@ ul li {
 }
 
 ul li:nth-child(even) {
-  background: rgb(152, 152, 152);
+  background: rgb(107, 244, 116);
   color: white;
 }
 
