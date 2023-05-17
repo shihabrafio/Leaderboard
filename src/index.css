@@ -7,7 +7,8 @@ body {
   margin-left: 4%;
 }
 
-h1,h3 {
+h1,
+h3 {
   color: white;
 }
 
@@ -78,16 +79,6 @@ ul li:nth-child(odd) {
   width: 20%;
 }
 
-.top-1 button {
-  height: 21px;
-  margin-top: 5%;
-  padding-top: 1%;
-}
-
-.add button {
-  margin-left: 76%;
-}
-
 button {
   width: fit-content;
   margin-left: auto;
@@ -103,4 +94,14 @@ button {
 
 button:hover {
   box-shadow: 0.05rem 0.05rem 0.5rem rgb(244, 237, 237);
+}
+
+.top-1 button {
+  height: 21px;
+  margin-top: 5%;
+  padding-top: 1%;
+}
+
+.add button {
+  margin-left: 76%;
 }
