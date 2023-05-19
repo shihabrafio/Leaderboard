@@ -1,6 +1,6 @@
 import './index.css';
 import { listitem, getscore, savescore } from './modules/game.js';
-import { baseUrl,enpoints } from './modules/app';
+// import { baseUrl, enpoints } from './modules/app.js';
 
 const refreshButton = document.querySelector('.refresh');
 refreshButton.addEventListener('click', async () => {
@@ -21,7 +21,7 @@ submit.addEventListener('click', async (e) => {
   const data = {
     user: nameinput.value,
     score: Number(scoreinput.value),
-  }
+  };
   await savescore(data);
   nameinput.value = '';
   scoreinput.value = '';
@@ -34,24 +34,24 @@ submit.addEventListener('keydown', (event) => {
   }
 });
 
-const clearAll = document.querySelector('.clear');
-clearAll.addEventListener('click', async (e) => {
-  e.preventDefault();
-  try {
-    const response = await fetch(baseUrl + enpoints.scores, {
-      method: "DELETE",
-      headers: {
-        'Content-Type':"application/json",
-      }
-    });
-    const data = await response.json();
-    if (response.ok) {
-      // Clear the scores UI
-      clearScores();
-    } else {
-      console.error("Failed to clear scores:", data);
-    }
-  } catch (error) {
-    console.error("Error deleting scores:", error);
-  }
-});
+// const clearAll = document.querySelector('.clear');
+// clearAll.addEventListener('click', async (e) => {
+//   e.preventDefault();
+//   try {
+//     const response = await fetch(baseUrl + enpoints.scores, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
+//     const data = await response.json();
+//     if (response.ok) {
+//       // Clear the scores UI
+//       // clearScores();
+//     } else {
+//       // console.error('Failed to clear scores:', data);
+//     }
+//   } catch (error) {
+//     // console.error('Error deleting scores:', error);
+//   }
+// });
