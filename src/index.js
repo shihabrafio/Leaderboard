@@ -1,31 +1,9 @@
 import './index.css';
-import { listitem, getscore, savescore } from '../modules/game.js';
-
-const apiUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
-
-let ID;
-const createGame = async () => {
-  const stored = localStorage.getItem('ID');
-  if (stored) {
-    ID = stored;
-  } else {
-    const response = await fetch(`${apiUrl}games/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name: 'Your Game' }),
-    });
-    const data = await response.json();
-    ID = data.result;
-    localStorage.setItem('ID', ID);
-  }
-};
-createGame();
-
+import { listitem, getscore, savescore } from './modules/game.js';
+// import { baseUrl,enpoints } from './modules/app';
 const refreshButton = document.querySelector('.refresh');
 refreshButton.addEventListener('click', async () => {
-  const scores = await getscore(ID);
+  const scores = await getscore();
   const scoresList = document.getElementById('scores');
   scoresList.innerHTML = '';
   scores.forEach((score) => {
@@ -39,9 +17,11 @@ submit.addEventListener('click', async (e) => {
   e.preventDefault();
   const nameinput = document.getElementById('name');
   const scoreinput = document.getElementById('score');
-  const name = nameinput.value.trim();
-  const score = parseInt(scoreinput.value, 10);
-  await savescore(ID, name, score);
+  const data = {
+    user: nameinput.value,
+    score: Number(scoreinput.value),
+  }
+  await savescore(data);
   nameinput.value = '';
   scoreinput.value = '';
 });
@@ -53,10 +33,12 @@ submit.addEventListener('keydown', (event) => {
   }
 });
 
-const clearAll = document.querySelector('.clear');
-clearAll.addEventListener('click', () => {
-  const scoresList = document.getElementById('scores');
-  scoresList.innerHTML = '';
-  localStorage.removeItem('ID');
-  window.location.reload();
-});
+// const clearAll = document.querySelector('.clear');
+// clearAll.addEventListener('click', () => {
+
+//   const scores = await fetch(baseUrl + enpoints.scores, {
+//     method: 'DELETE',
+//   }
+//   const data = await scores.json();
+//    return window.location.reload()
+// )});
