@@ -5,6 +5,7 @@ body {
   padding: 0;
   overflow: scroll;
   margin-left: 4%;
+  margin-top: 4%;
 }
 
 h1,
@@ -25,7 +26,7 @@ header {
 .top-1 {
   display: flex;
   justify-content: space-evenly;
-  background-color: #1b3118;
+  background-color: #2b5e24;
   color: white;
   border-radius: 10px;
 }
