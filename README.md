@@ -5,6 +5,9 @@
  <img src='./video.gif'>
 </div>
 
+<div align="center">
+  <h3><b>Math Magician</b></h3>
+</div>
 
 # 📗 Table of Contents
 
