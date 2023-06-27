@@ -1,5 +1,11 @@
 <a name="readme-top"></a>
 
+<div align="center">
+ <b> <i> <u> PREVIEW </u> </i></b> </br> </br>
+ <img src='./video.gif'>
+</div>
+
+
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
